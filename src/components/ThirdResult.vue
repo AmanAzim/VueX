@@ -11,10 +11,13 @@
     export default {
         // props: ['counter']
         computed:{
-            ...mapGetters([
+            ...mapGetters([   //in order to separate it from other computed properties
                 'doubleTheCounter',
                 'stringCounter',
-            ])
+            ]),
+            computedProp(){
+                return true; //for example
+            }
         }
     }
 </script>
