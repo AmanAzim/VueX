@@ -1,5 +1,9 @@
 <template>
-    <p>Counter is: {{ counter }}</p>
+    <div>
+        <p>Counter is: {{ counter }}</p>
+        <p>Double Counter is: {{counterDouble}}
+        <p>String counter: {{clicks}}</p>
+    </div>
 </template>
 
 <script>
@@ -8,6 +12,12 @@
         computed:{
             counter(){
                 return this.$store.state.counter;
+            },
+            counterDouble(){
+                return this.$store.getters.doubleTheCounter;
+            },
+            clicks(){
+                return this.$store.getters.stringCounter;
             }
         }
     }

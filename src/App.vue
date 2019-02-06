@@ -6,6 +6,10 @@
                <!-- <app-result :counter="counter"></app-result> -->
                 <app-result></app-result>
                 <hr>
+                <app-secondResult></app-secondResult>
+                <hr>
+                <app-thirdResult></app-thirdResult>
+                <hr>
                <!-- <app-counter @updated="counter += $event"></app-counter> -->
                 <app-counter></app-counter>
             </div>
@@ -16,6 +20,8 @@
 <script>
     import Counter from './components/Counter.vue';
     import Result from './components/Result.vue';
+    import SecondResult from './components/SecondResult.vue';
+    import ThirdResult from './components/ThirdResult.vue';
 
     export default {
         data() {
@@ -26,6 +32,8 @@
         components: {
             appCounter: Counter,
             appResult: Result,
+            'app-secondResult':SecondResult,
+            'app-thirdResult':ThirdResult,
         }
     }
 </script>

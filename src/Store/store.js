@@ -6,5 +6,13 @@ Vue.use(Vuex); //Enable it
 export const store=new Vuex.Store({
     state:{
         counter:0,
+    },
+    getters:{
+        doubleTheCounter: state => {
+            return state.counter*2;
+        },
+        stringCounter: state=>{
+            return state.counter+'clicks';
+        }
     }
 });
