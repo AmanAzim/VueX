@@ -28,7 +28,7 @@
 <script>
     import Counter from './components/Counter.vue';
     import MutatedCounter from './components/MutatedCounter.vue';
-    import SecondMutatedCounter from './components/SecondMutatedCounter.vue';
+    import SecondMutatedCounter from './components/MutatedCounter2.vue';
     import ActionCounter from './components/ActionCounter.vue';
     import ActionCounter2 from './components/ActionCounter2.vue';
     import Result from './components/Result.vue';
