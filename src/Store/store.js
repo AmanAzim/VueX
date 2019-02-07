@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import inputValue from './modules/inputValue';
 
 Vue.use(Vuex); //Enable it
 
 export const store=new Vuex.Store({
     state:{
         counter:0,
-        value:0,
     },
     getters:{
         doubleTheCounter: state => {
@@ -15,9 +15,6 @@ export const store=new Vuex.Store({
         stringCounter: state=>{
             return state.counter+'clicks';
         },
-        value:state=>{
-            return state.value;
-        }
     },
     mutations:{
         increment:(state)=>{
@@ -29,9 +26,6 @@ export const store=new Vuex.Store({
         incrementWithPayload:(state, payload)=>{
             state.counter+=payload;
         },
-        updateValue:(state, val)=>{
-            state.value=val;
-        }
     },
     actions:{
         increment:($store)=>{                  //using $store fully is unnecessary we just need the {commit} object method
@@ -49,8 +43,8 @@ export const store=new Vuex.Store({
         asyncDecrement:({commit})=>{
             setTimeout(()=>{commit('decrement');}, 1000);
         },
-        updateValue:({commit}, val)=>{
-            commit('updateValue', val);
-        }
+    },
+    modules:{
+        inputValue,
     }
 });
