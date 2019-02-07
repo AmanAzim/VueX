@@ -20,6 +20,17 @@
                 <app-actionCounter></app-actionCounter>
                 <br><br><hr>
                 <app-actionCounter2></app-actionCounter2>
+                <br><hr>
+
+                <p>Using v-bind :</p>
+                <input type="text" v-bind:value="value" @input="updateValue">
+                <p>Value: {{value}}</p>
+                <br><hr>
+
+                <p>Using v-model and advance computed property :</p>
+                <input type="text" v-model="value">
+                <p>Value: {{value}}</p>
+                <br>
             </div>
         </div>
     </div>
@@ -39,6 +50,21 @@
         data() {
             return {
                // counter: 0
+            }
+        },
+        computed:{
+            value:{
+                get(){
+                    return this.$store.getters.value;
+                },
+                set(val){
+                    this.$store.dispatch('updateValue', val);
+                }
+            }
+        },
+        methods:{
+            updateValue(event){
+                this.$store.dispatch('updateValue', event.target.value);
             }
         },
         components: {

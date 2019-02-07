@@ -6,6 +6,7 @@ Vue.use(Vuex); //Enable it
 export const store=new Vuex.Store({
     state:{
         counter:0,
+        value:0,
     },
     getters:{
         doubleTheCounter: state => {
@@ -13,6 +14,9 @@ export const store=new Vuex.Store({
         },
         stringCounter: state=>{
             return state.counter+'clicks';
+        },
+        value:state=>{
+            return state.value;
         }
     },
     mutations:{
@@ -24,11 +28,14 @@ export const store=new Vuex.Store({
         },
         incrementWithPayload:(state, payload)=>{
             state.counter+=payload;
+        },
+        updateValue:(state, val)=>{
+            state.value=val;
         }
     },
     actions:{
-        increment:({commit})=>{
-            commit('increment');
+        increment:($store)=>{                  //using $store fully is unnecessary we just need the {commit} object method
+            $store.commit('increment');
         },
         decrement:({commit})=>{
             commit('decrement');
@@ -41,6 +48,9 @@ export const store=new Vuex.Store({
         },
         asyncDecrement:({commit})=>{
             setTimeout(()=>{commit('decrement');}, 1000);
+        },
+        updateValue:({commit}, val)=>{
+            commit('updateValue', val);
         }
     }
 });
